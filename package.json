@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./style.css --minify",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambda-client/website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lambda-client/website/issues"
+  },
+  "homepage": "https://github.com/lambda-client/website#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
