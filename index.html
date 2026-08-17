@@ -170,6 +170,17 @@
             }
         }
 
+        /* --- VERSION DISCLOSURE --- */
+        .version-disclosure > summary {
+            list-style: none;
+        }
+        .version-disclosure > summary::-webkit-details-marker {
+            display: none;
+        }
+        .version-disclosure[open] > summary .disclosure-chevron {
+            transform: rotate(180deg);
+        }
+
         /* --- MOBILE MENU TRANSITION --- */
         @media (max-width: 767px) {
             #mobile-menu.mobile-collapsible {
@@ -207,8 +218,8 @@
         </button>
 
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse hidden md:flex">
-            <a href="#"
-               class="dynamic-dl-btn text-white bg-lambda-red hover:bg-lambda-dark shadow-lg shadow-lambda-red/20 hover:shadow-lambda-red/50 focus:ring-4 focus:outline-none focus:ring-lambda-red/30 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 flex items-center gap-2 group">
+            <a href="https://github.com/lambda-client/lambda-loader"
+               class="dynamic-loader-dl text-white bg-lambda-red hover:bg-lambda-dark shadow-lg shadow-lambda-red/20 hover:shadow-lambda-red/50 focus:ring-4 focus:outline-none focus:ring-lambda-red/30 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 flex items-center gap-2 group">
                 Download
                 <span class="text-xs bg-black/20 px-2 py-1 rounded text-white/90 font-mono group-hover:bg-black/30 transition-colors inline-flex items-center gap-1">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -273,10 +284,10 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#"
-                       class="dynamic-dl-btn inline-flex justify-center items-center py-3 px-6 text-base font-bold text-white rounded-xl bg-lambda-red hover:bg-lambda-dark shadow-lg shadow-lambda-red/30 transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="https://github.com/lambda-client/lambda-loader"
+                       class="dynamic-loader-dl inline-flex justify-center items-center py-3 px-6 text-base font-bold text-white rounded-xl bg-lambda-red hover:bg-lambda-dark shadow-lg shadow-lambda-red/30 transition-all duration-300 transform hover:-translate-y-1">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span class="mr-2">Download <span class="dynamic-mod-ver">...</span></span>
+                        <span class="mr-2 whitespace-nowrap">Download Lambda</span>
                         <span class="text-xs bg-black/20 px-2 py-1 rounded text-white/90 font-mono inline-flex items-center gap-1">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <rect x="4" y="8" width="16" height="12" fill="#8B4513"/>
@@ -299,6 +310,11 @@
                         Discord
                     </a>
                 </div>
+
+                <p class="mt-5 text-sm text-slate-500 text-center lg:text-left">
+                    Auto-updating loader &mdash; always the right build for your Minecraft version.
+                    <a href="#versions" class="text-slate-400 hover:text-lambda-pink underline underline-offset-2 transition-colors">Pick a specific version instead</a>
+                </p>
             </div>
 
             <div class="hidden lg:block relative z-0">
@@ -319,6 +335,41 @@
                 Features
             </h2>
             <div class="grid md:grid-cols-2 gap-6 reveal-children">
+                <div class="reveal md:col-span-2 bg-gradient-to-br from-rose-950/40 to-slate-950/80 backdrop-blur p-6 md:p-8 rounded-xl border border-lambda-pink/20 hover:border-lambda-pink/40 transition-colors group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-rose-900/40 text-lambda-pink rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">TaskFlow &mdash; the brain of the client</h3>
+                            <p class="text-xs text-lambda-pink/80 font-semibold uppercase tracking-wide mt-0.5">One automation system, every module</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                        Everything Lambda does in the world &mdash; walking, mining, placing, swapping items, eating &mdash; runs through
+                        <strong class="text-slate-200">one shared system</strong>. So your modules cooperate instead of each doing their own thing:
+                        a build can restock itself from a shulker, walk to the next section and eat on the way, without you touching anything.
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-950/60 border border-slate-800 rounded-lg p-4">
+                            <h4 class="text-sm font-bold text-white mb-1">Printer</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Hand it a schematic and walk away. It finds the materials, moves itself into position and sets every block the right way round.</p>
+                        </div>
+                        <div class="bg-slate-950/60 border border-slate-800 rounded-lg p-4">
+                            <h4 class="text-sm font-bold text-white mb-1">HighwayTools</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">Digs and paves for as long as you leave it running &mdash; straight or diagonal, floor, walls and ceiling.</p>
+                        </div>
+                        <div class="bg-slate-950/60 border border-slate-800 rounded-lg p-4">
+                            <h4 class="text-sm font-bold text-white mb-1">InventoryTweaks</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">One click opens a shulker where you stand. Close it and the box is broken and back in your inventory.</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-5 leading-relaxed">
+                        Set up how you want blocks placed, how you rotate and how your hotbar is managed <strong class="text-slate-400">once</strong>, in an
+                        Automation Profile &mdash; and every module follows it. Swap profiles for a different server or a different job and the whole client
+                        moves with you, instead of you re-tuning ten modules by hand.
+                    </p>
+                </div>
                 <div class="reveal bg-slate-950/80 backdrop-blur p-6 rounded-xl border border-slate-800 hover:border-lambda-pink/40 transition-colors group">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-12 h-12 bg-rose-900/30 text-lambda-pink rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -327,7 +378,7 @@
                         <h3 class="text-xl font-bold text-white">Automation Engine</h3>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Lambda can <span class="text-lambda-pink">autonomously build structures</span>. We use <strong>Litematica</strong> as an interface, while our building engine handles the complex orchestration, block states, and rotations.
+                        Load a <strong>Litematica</strong> schematic and Lambda <span class="text-lambda-pink">builds it for you</span> &mdash; working out the order to place things, which way each block faces, and where to stand. Megabases and logos without the mouse arm.
                     </p>
                 </div>
                 <div class="reveal bg-slate-950/80 backdrop-blur p-6 rounded-xl border border-slate-800 hover:border-lambda-pink/40 transition-colors group">
@@ -338,7 +389,7 @@
                         <h3 class="text-xl font-bold text-white">Unmatched Performance</h3>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Optimized rendering pipelines using batched rendering for superfast ESP. Modern frameworks ensure speed and responsiveness.
+                        Highlight every chest, hole or bedrock block as far as you can see and watch your framerate stay where it was. Lambda draws thousands of blocks at once for what other clients charge you for a handful.
                     </p>
                 </div>
                 <div class="reveal bg-slate-950/80 backdrop-blur p-6 rounded-xl border border-slate-800 hover:border-lambda-pink/40 transition-colors group">
@@ -349,7 +400,7 @@
                         <h3 class="text-xl font-bold text-white">Sophisticated UX</h3>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Fine-tune over <strong>1000+ settings</strong> with the clean <strong>Dear ImGui</strong> interface. Use Automation Profiles to switch complex configs instantly.
+                        Over <strong>1000 settings</strong> you can actually find. Double-tap to search anything, snap your HUD to a grid, and keep whole setups as profiles you switch between in a click.
                     </p>
                 </div>
                 <div class="reveal bg-slate-950/80 backdrop-blur p-6 rounded-xl border border-slate-800 hover:border-lambda-pink/40 transition-colors group">
@@ -360,7 +411,7 @@
                         <h3 class="text-xl font-bold text-white">Safety & Tools</h3>
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Built with <strong>Grim Anticheat</strong> compatibility in mind. Includes the new <strong>HighwayTools</strong>, rewritten to use the powerful build engine for efficient maintenance.
+                        Developed and tested against <strong>Grim</strong> on 2b2t, so what works here works where you play. Elytra flight, building and movement are tuned on the server they were built for.
                     </p>
                 </div>
             </div>
@@ -369,11 +420,78 @@
 
     <section id="versions" class="py-24 max-w-7xl mx-auto px-6 reveal">
         <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Version History</h2>
-            <p class="text-slate-400">Download stable releases or try out the latest development snapshots.</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Download</h2>
+            <p class="text-slate-400">One jar, and the client keeps itself current.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <!-- PRIMARY: Lambda Loader -->
+        <div class="max-w-3xl mx-auto bg-gradient-to-br from-rose-950/40 to-slate-950/80 backdrop-blur border border-lambda-pink/30 rounded-2xl p-6 md:p-8 shadow-2xl shadow-lambda-red/10">
+            <div class="flex items-center gap-3 mb-3 flex-wrap">
+                <h3 class="text-2xl font-bold text-white">Lambda Loader</h3>
+                <span class="text-[10px] uppercase tracking-wide font-bold text-lambda-pink bg-rose-950/70 border border-lambda-pink/30 rounded px-2 py-1">Recommended</span>
+            </div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                A small jar that goes into your mods folder in place of the Lambda jar. On every launch it fetches the
+                right build for you, so you never download the client by hand again.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-4 mb-8">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-lambda-pink shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-0.5">Matches your Minecraft</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Picks the build for whatever version you launch &mdash; no version guessing.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-lambda-pink shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-0.5">Verified downloads</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Every build is checked against our servers before it loads, so you always get the real thing.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-lambda-pink shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-0.5">Updates itself too</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">The loader keeps both the client and itself up to date.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                <a class="dynamic-loader-dl inline-flex justify-center items-center py-3.5 px-7 text-base font-bold text-white rounded-xl bg-lambda-red hover:bg-lambda-dark shadow-lg shadow-lambda-red/30 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
+                   href="https://github.com/lambda-client/lambda-loader">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download Lambda Loader
+                </a>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    <span id="loader-ver" class="font-mono text-slate-400">&nbsp;</span><br>
+                    Tracks development builds out of the box. Switch it to stable-only under
+                    <span class="font-mono text-slate-400">AutoUpdater &rarr; Client Branch</span> in the client.
+                </p>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-500 mt-6">
+            New here? Follow the <a href="#install" class="text-lambda-pink hover:underline">installation steps</a> &mdash; the loader still needs Fabric API, Kotlin and Baritone alongside it.
+        </p>
+
+        <!-- SECONDARY: pinned versions -->
+        <details class="version-disclosure max-w-5xl mx-auto mt-12 border-t border-white/5 pt-8">
+            <summary class="cursor-pointer text-center text-sm font-semibold text-slate-400 hover:text-lambda-pink transition-colors select-none">
+                <span class="inline-flex items-center gap-2">
+                    Need a specific version instead?
+                    <svg class="disclosure-chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+            </summary>
+
+            <p class="text-center text-slate-500 text-sm mt-6 mb-8 max-w-2xl mx-auto">
+                Pinned jars for when you need one exact build &mdash; reproducing a bug, staying on a known-good version,
+                or running without the auto-updater. These do not update themselves.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
             <!-- Stable Releases column -->
             <div>
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
@@ -435,7 +553,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </details>
     </section>
 
     <!-- Discord Community Section -->
@@ -454,39 +573,193 @@
         </div>
     </section>
 
-    <section id="install" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5 reveal">
-        <h2 class="text-3xl font-bold text-white mb-12 text-center">Installation</h2>
+    <section id="install" class="max-w-5xl mx-auto px-6 py-24 border-t border-white/5 reveal">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">Installation</h2>
+            <p class="text-slate-400">
+                Lambda is a Fabric mod for Minecraft <span class="dynamic-mc-ver font-mono text-slate-300">...</span>.
+                Every jar listed below goes into the same <code class="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300 font-mono text-sm">mods</code> folder.
+            </p>
+        </div>
+
+        <!-- Dependencies -->
+        <div class="bg-slate-950/80 backdrop-blur rounded-3xl p-8 border border-slate-800 relative z-10 mb-8">
+            <div class="flex items-baseline justify-between flex-wrap gap-2 mb-2">
+                <h3 class="text-xl font-bold text-white">Required mods</h3>
+                <span class="text-xs text-slate-500 font-mono">Java <span class="dynamic-java-ver">21</span> &middot; Minecraft <span class="dynamic-mc-ver">...</span></span>
+            </div>
+            <p class="text-slate-400 text-sm mb-6">
+                Lambda will <strong class="text-slate-300">not start</strong> without these. Match the Minecraft version exactly.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-lambda-pink/40 rounded-xl p-4 transition-colors block">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h4 class="font-bold text-white">Fabric Loader</h4>
+                            <p class="text-slate-400 text-xs mt-1">The mod loader itself. Install it with the official installer, then launch the Fabric profile.</p>
+                        </div>
+                        <span class="shrink-0 text-[10px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-400" data-dep="fabricLoader">0.18.3+</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-lambda-pink group-hover:gap-2 transition-all">
+                        fabricmc.net
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <a href="https://modrinth.com/mod/fabric-api/versions" data-modrinth="fabric-api" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-lambda-pink/40 rounded-xl p-4 transition-colors block">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h4 class="font-bold text-white">Fabric API</h4>
+                            <p class="text-slate-400 text-xs mt-1">Core hooks every Fabric mod builds on. Drop the jar into <code class="text-slate-300 font-mono">mods</code>.</p>
+                        </div>
+                        <span class="shrink-0 text-[10px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-400" data-dep="fabricApi">0.139.5+</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-lambda-pink group-hover:gap-2 transition-all">
+                        Modrinth
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <a href="https://modrinth.com/mod/fabric-language-kotlin/versions" data-modrinth="fabric-language-kotlin" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-lambda-pink/40 rounded-xl p-4 transition-colors block">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h4 class="font-bold text-white">Fabric Language Kotlin</h4>
+                            <p class="text-slate-400 text-xs mt-1">Lambda is written in Kotlin, so this runtime is mandatory &mdash; not optional.</p>
+                        </div>
+                        <span class="shrink-0 text-[10px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-400" data-dep="fabricKotlin">1.13.8+</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-lambda-pink group-hover:gap-2 transition-all">
+                        Modrinth
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <a id="baritone-dl" href="https://maven.2b2t.vc/#/releases/com/github/rfresh2/baritone-fabric" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-lambda-pink/40 rounded-xl p-4 transition-colors block">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <h4 class="font-bold text-white">Baritone <span class="text-[10px] align-middle uppercase tracking-wide text-amber-400 bg-amber-950/60 border border-amber-500/30 rounded px-1.5 py-0.5 ml-1">read this</span></h4>
+                            <p class="text-slate-400 text-xs mt-1">
+                                Pathfinding backend for HighwayTools, Printer and every walking task.
+                                Vanilla Baritone has no build for this Minecraft version &mdash; use
+                                <strong class="text-slate-300">rfresh2's Fabric build</strong>, linked here.
+                            </p>
+                        </div>
+                        <span class="shrink-0 text-[10px] font-mono px-2 py-1 rounded bg-slate-800 text-slate-400" data-dep="baritone">1.14.0</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-lambda-pink group-hover:gap-2 transition-all">
+                        <span id="baritone-dl-label">maven.2b2t.vc</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mt-10 mb-2">Recommended</h3>
+            <p class="text-slate-400 text-sm mb-6">Not required to launch, but some modules stay idle without them.</p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="https://modrinth.com/mod/litematica/versions" data-modrinth="litematica" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-colors block">
+                    <h4 class="font-bold text-white">Litematica <span class="text-slate-500 font-normal text-xs">+ MaLiLib</span></h4>
+                    <p class="text-slate-400 text-xs mt-1">Schematic format the <strong class="text-slate-300">Printer</strong> builds from. Without it, Printer has nothing to read.</p>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-slate-400 group-hover:text-lambda-pink transition-colors">Modrinth &rarr;</span>
+                </a>
+                <a href="https://modrinth.com/mod/sodium/versions" data-modrinth="sodium" target="_blank" rel="noopener"
+                   class="dep-card group bg-slate-900/60 border border-slate-800 hover:border-slate-600 rounded-xl p-4 transition-colors block">
+                    <h4 class="font-bold text-white">Sodium</h4>
+                    <p class="text-slate-400 text-xs mt-1">Lambda's renderer is tested against Sodium. Recommended if you want the frames our ESP was built for.</p>
+                    <span class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-slate-400 group-hover:text-lambda-pink transition-colors">Modrinth &rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Steps -->
         <div class="bg-slate-950/80 backdrop-blur rounded-3xl p-8 border border-slate-800 relative z-10">
+            <h3 class="text-xl font-bold text-white mb-8">Step by step</h3>
             <ol class="relative border-s border-slate-700 ml-3 space-y-8">
                 <li class="ms-8 group">
                     <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
                         <span class="text-sm font-bold text-white">1</span>
                     </span>
-                    <h3 class="text-lg font-bold text-white">Minecraft <span class="dynamic-mc-ver">...</span></h3>
-                    <p class="text-slate-400 text-sm">Install the correct version via the official launcher.</p>
+                    <h4 class="text-lg font-bold text-white">Install Minecraft <span class="dynamic-mc-ver">...</span></h4>
+                    <p class="text-slate-400 text-sm">Run it once through the official launcher so the version files exist. Java <span class="dynamic-java-ver">21</span> or newer is required.</p>
                 </li>
                 <li class="ms-8 group">
                      <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
                         <span class="text-sm font-bold text-white">2</span>
                     </span>
-                    <h3 class="text-lg font-bold text-white">Fabric Loader</h3>
-                    <p class="text-slate-400 text-sm">Download and install the latest Fabric version.</p>
+                    <h4 class="text-lg font-bold text-white">Install Fabric Loader</h4>
+                    <p class="text-slate-400 text-sm">Use the Fabric installer and pick Minecraft <span class="dynamic-mc-ver font-mono">...</span>. This creates a new launcher profile.</p>
                 </li>
                 <li class="ms-8 group">
                      <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
                         <span class="text-sm font-bold text-white">3</span>
                     </span>
-                    <h3 class="text-lg font-bold text-white">Get Lambda</h3>
-                    <p class="text-slate-400 text-sm">Download the <code class="bg-slate-800 px-1 rounded text-lambda-pink">.jar</code> file from the buttons above.</p>
+                    <h4 class="text-lg font-bold text-white">Collect the dependencies</h4>
+                    <p class="text-slate-400 text-sm">
+                        Download <strong class="text-slate-300">Fabric API</strong>, <strong class="text-slate-300">Fabric Language Kotlin</strong> and
+                        <strong class="text-slate-300">Baritone</strong> from the cards above. All three are jars &mdash; keep them together.
+                    </p>
                 </li>
                 <li class="ms-8 group">
                      <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
                         <span class="text-sm font-bold text-white">4</span>
                     </span>
-                    <h3 class="text-lg font-bold text-white">Launch</h3>
-                    <p class="text-slate-400 text-sm">Place in <code class="bg-slate-800 px-1 rounded text-slate-300">.minecraft/mods</code> and start the game.</p>
+                    <h4 class="text-lg font-bold text-white">Get Lambda</h4>
+                    <p class="text-slate-400 text-sm">
+                        Grab the Lambda jar from the <a href="#versions" class="text-lambda-pink hover:underline">download section</a> &mdash;
+                        or the <a href="#versions" class="text-lambda-pink hover:underline">Lambda Loader</a> if you want the client to keep itself up to date.
+                    </p>
+                </li>
+                <li class="ms-8 group">
+                     <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
+                        <span class="text-sm font-bold text-white">5</span>
+                    </span>
+                    <h4 class="text-lg font-bold text-white">Drop everything into <code class="bg-slate-800 px-1.5 rounded text-slate-300 text-base font-mono">mods</code></h4>
+                    <div class="text-slate-400 text-sm">
+                        <p class="mb-3">All jars live side by side in <code class="bg-slate-800 px-1 rounded text-slate-300 font-mono">.minecraft/mods</code>:</p>
+                        <pre class="bg-slate-900 border border-slate-800 rounded-lg p-4 text-xs overflow-x-auto font-mono text-slate-300"><code>.minecraft/mods/
+├── lambda-<span class="dynamic-mod-ver-plain">...</span>.jar
+├── fabric-api-*.jar
+├── fabric-language-kotlin-*.jar
+├── baritone-fabric-*.jar
+└── litematica-*.jar   <span class="text-slate-500"># optional, for Printer</span></code></pre>
+                        <p class="mt-3 text-xs text-slate-500">
+                            Windows: <code class="bg-slate-800 px-1 rounded font-mono">%appdata%\.minecraft\mods</code> &middot;
+                            Linux: <code class="bg-slate-800 px-1 rounded font-mono">~/.minecraft/mods</code> &middot;
+                            macOS: <code class="bg-slate-800 px-1 rounded font-mono">~/Library/Application Support/minecraft/mods</code>
+                        </p>
+                    </div>
+                </li>
+                <li class="ms-8 group">
+                     <span class="absolute flex items-center justify-center w-8 h-8 bg-slate-800 border-2 border-lambda-red rounded-full -start-4 ring-4 ring-slate-900">
+                        <span class="text-sm font-bold text-white">6</span>
+                    </span>
+                    <h4 class="text-lg font-bold text-white">Launch &amp; verify</h4>
+                    <p class="text-slate-400 text-sm">
+                        Start the Fabric profile, join any world and press
+                        <kbd class="px-1.5 py-0.5 text-xs font-semibold text-white bg-slate-700 border border-slate-600 rounded font-mono">Y</kbd>.
+                        The Lambda GUI should open.
+                    </p>
                 </li>
             </ol>
+
+            <div class="mt-8 bg-amber-950/30 border border-amber-500/20 rounded-xl p-5">
+                <h4 class="font-bold text-amber-300 text-sm mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4a2 2 0 00-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"></path></svg>
+                    Game crashes on startup?
+                </h4>
+                <ul class="text-slate-400 text-sm space-y-1.5 list-disc list-inside">
+                    <li>A missing <strong class="text-slate-300">Baritone</strong> jar crashes development snapshots. Install it even if you never touch pathfinding.</li>
+                    <li>Every jar must target Minecraft <span class="dynamic-mc-ver font-mono text-slate-300">...</span>. A dependency built for another version is the most common cause of failure.</li>
+                    <li>Still stuck? Post your <code class="bg-slate-800 px-1 rounded text-slate-300 font-mono">latest.log</code> in
+                        <a href="https://discord.gg/3y3ah5BtjB" class="text-lambda-pink hover:underline">our Discord</a> &mdash; someone will get you running.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -497,7 +770,7 @@
         <div class="flex items-center gap-2">
             <img src="https://raw.githubusercontent.com/lambda-client/assets/refs/heads/main/lambda%20logo%20color.svg" class="h-6 w-auto grayscale opacity-50" alt="Lambda Logo">
             <span class="text-sm text-slate-600">
-            &copy; 2026 Lambda. Not affiliated with Mojang.
+            &copy; <span id="footer-year">2026</span> Lambda. Not affiliated with Mojang.
           </span>
         </div>
         <ul class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-500">
@@ -741,6 +1014,26 @@
         const GITHUB_RELEASES = 'https://github.com/lambda-client/lambda/releases';
         const FETCH_TIMEOUT = 5000; // 5 second timeout
 
+        /*
+         * Dependency versions shown in the Installation section.
+         *
+         * These are only a FALLBACK. At runtime the page tries to fetch a deps.json published
+         * alongside the client release on the maven, and anything it finds there wins. Once the
+         * release pipeline publishes that file, nothing in this block needs touching again.
+         * See README.md -> "Where the version numbers come from".
+         */
+        const SITE_DEFAULTS = {
+            minecraft: '1.21.11',
+            java: '21',
+            dependencies: {
+                fabricLoader: '0.18.3',
+                fabricApi: '0.139.5',
+                fabricKotlin: '1.13.8',
+                baritone: '1.14.0'
+            }
+        };
+        const FALLBACK_MC_VERSION = SITE_DEFAULTS.minecraft;
+
         function fetchWithTimeout(url, timeoutMs = FETCH_TIMEOUT) {
             const controller = new AbortController();
             const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -802,6 +1095,95 @@
 
         const getMcVersion = (ver) => ver.includes('+') ? ver.split('+')[1].replace('-SNAPSHOT', '') : "Unknown";
         const getModVersion = (ver) => ver.split('+')[0];
+
+        // --- DEPENDENCY VERSIONS ---
+        // Minimum-version deps get a trailing "+"; Baritone is pinned to an exact build.
+        const MINIMUM_VERSION_DEPS = ['fabricLoader', 'fabricApi', 'fabricKotlin'];
+
+        function applyDependencyVersions(data) {
+            const deps = data.dependencies || {};
+            document.querySelectorAll('[data-dep]').forEach(el => {
+                const version = deps[el.dataset.dep];
+                if (!version) return; // keep the baked-in fallback
+                el.textContent = MINIMUM_VERSION_DEPS.includes(el.dataset.dep) ? `${version}+` : version;
+            });
+            if (data.java) {
+                document.querySelectorAll('.dynamic-java-ver').forEach(el => el.textContent = data.java);
+            }
+        }
+
+        /**
+         * Loads the dependency manifest published next to a client release, so the Installation
+         * section tracks releases without anyone editing this file. Falls back to SITE_DEFAULTS.
+         */
+        async function loadDependencyManifest(version) {
+            if (!version) return;
+            const groupPath = GROUP_ID.replace(/\./g, '/');
+            const url = `${MAVEN_BASE}/releases/${groupPath}/${ARTIFACT_ID}/${encodeURIComponent(version)}/${ARTIFACT_ID}-${version}-deps.json`;
+            try {
+                const res = await fetchWithTimeout(url);
+                if (!res.ok) return; // not published (yet) - defaults stay
+                applyDependencyVersions(await res.json());
+            } catch (e) {
+                console.warn('No dependency manifest for', version, e);
+            }
+        }
+
+        // --- LAMBDA LOADER ---
+        const LOADER_ARTIFACT = 'lambda-loader';
+        const LOADER_GITHUB = 'https://github.com/lambda-client/lambda-loader';
+
+        async function initLoader() {
+            const btns = document.querySelectorAll('.dynamic-loader-dl');
+            const label = document.getElementById('loader-ver');
+            if (!btns.length) return;
+
+            const groupPath = GROUP_ID.replace(/\./g, '/');
+            const base = `${MAVEN_BASE}/releases/${groupPath}/${LOADER_ARTIFACT}`;
+            try {
+                const res = await fetchWithTimeout(`${base}/maven-metadata.xml`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const xml = new DOMParser().parseFromString(await res.text(), "text/xml");
+                const versions = Array.from(xml.querySelectorAll("version")).map(v => v.textContent);
+                const latest = xml.querySelector("release")?.textContent || versions[versions.length - 1];
+                if (!latest) throw new Error('no versions');
+
+                const jar = `${base}/${encodeURIComponent(latest)}/${LOADER_ARTIFACT}-${latest}.jar`;
+                btns.forEach(btn => btn.href = jar);
+                if (label) label.textContent = `Loader v${getModVersion(latest)} · MC ${getMcVersion(latest)}`;
+            } catch (e) {
+                console.warn('Could not load Lambda Loader metadata:', e);
+                btns.forEach(btn => btn.href = LOADER_GITHUB);
+                if (label) label.textContent = 'Latest release on GitHub';
+            }
+        }
+
+        // --- BARITONE (rfresh2 Fabric build, matched to our MC version) ---
+        const BARITONE_MAVEN = 'https://maven.2b2t.vc/releases/com/github/rfresh2/baritone-fabric';
+
+        async function initBaritone(mcVer) {
+            const card = document.getElementById('baritone-dl');
+            const label = document.getElementById('baritone-dl-label');
+            if (!card || !mcVer || mcVer === 'Unknown') return;
+
+            const version = `${mcVer}-SNAPSHOT`;
+            try {
+                const res = await fetchWithTimeout(`${BARITONE_MAVEN}/${version}/maven-metadata.xml`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const xml = new DOMParser().parseFromString(await res.text(), "text/xml");
+                const jarValue = Array.from(xml.querySelectorAll("snapshotVersion"))
+                    .find(sv => sv.querySelector("extension")?.textContent === 'jar' && !sv.querySelector("classifier"))
+                    ?.querySelector("value")?.textContent;
+                if (!jarValue) throw new Error('no jar in metadata');
+
+                card.href = `${BARITONE_MAVEN}/${version}/baritone-fabric-${jarValue}.jar`;
+                if (label) label.textContent = `Download baritone-fabric ${mcVer}`;
+            } catch (e) {
+                console.warn('Could not resolve Baritone jar:', e);
+                card.href = `https://maven.2b2t.vc/#/releases/com/github/rfresh2/baritone-fabric/${version}`;
+                if (label) label.textContent = `Browse builds for ${mcVer}`;
+            }
+        }
 
         function showError(containerId) {
             const container = document.getElementById(containerId);
@@ -932,28 +1314,31 @@
             } else {
                 // Both failed - fallback hero to GitHub
                 document.querySelectorAll('.dynamic-mod-title').forEach(el => el.textContent = 'Check GitHub for latest');
-                document.querySelectorAll('.dynamic-dl-btn').forEach(el => el.href = GITHUB_RELEASES);
-                document.querySelectorAll('.dynamic-mod-ver').forEach(el => el.textContent = '');
+                document.querySelectorAll('.dynamic-mod-ver-plain').forEach(el => el.textContent = 'x.y.z');
+                document.querySelectorAll('.dynamic-mc-ver').forEach(el => el.textContent = FALLBACK_MC_VERSION);
+                initBaritone(FALLBACK_MC_VERSION);
                 return;
             }
 
             const mcVer = getMcVersion(best);
             const modVer = getModVersion(best);
 
-            let primaryDlUrl;
-            if (isSnapshotFallback) {
-                primaryDlUrl = snapResult.latestSnapshotJar || GITHUB_RELEASES;
-            } else {
-                primaryDlUrl = `${GITHUB_RELEASES}/download/${encodeURIComponent(best)}/${ARTIFACT_ID}-${best}.jar`;
-            }
-
-            document.querySelectorAll('.dynamic-dl-btn').forEach(el => el.href = primaryDlUrl);
             document.querySelectorAll('.dynamic-mc-ver').forEach(el => el.textContent = mcVer);
-            document.querySelectorAll('.dynamic-mod-ver').forEach(el => el.textContent = isSnapshotFallback ? `v${modVer} (Snap)` : `v${modVer}`);
+            document.querySelectorAll('.dynamic-mod-ver-plain').forEach(el => el.textContent = best);
             document.querySelectorAll('.dynamic-mod-title').forEach(el => el.textContent = isSnapshotFallback ? `Latest Snapshot: ${modVer}` : `Release ${modVer}`);
+
+            // Point dependency links at builds for this exact Minecraft version
+            document.querySelectorAll('[data-modrinth]').forEach(el => {
+                el.href = `https://modrinth.com/mod/${el.dataset.modrinth}/versions?g=${encodeURIComponent(mcVer)}&l=fabric`;
+            });
+            initBaritone(mcVer);
+            loadDependencyManifest(latestRelease);
         }
 
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+        applyDependencyVersions(SITE_DEFAULTS);
         initVersions();
+        initLoader();
     });
 </script>
 
